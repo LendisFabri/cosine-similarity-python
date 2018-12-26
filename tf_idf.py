@@ -1,14 +1,14 @@
 # import MySQLdb
 import pymysql as mdb
-from math import log
+from math import log10
 
-dbConnection = mdb.Connect(host="localhost", user="root", passwd="27011996malang", db="batik_data_2")
+dbConnection = mdb.Connect(host="", user="", passwd="", db="")
 cursor = dbConnection.cursor()
 cursor2 = dbConnection.cursor()
 # cursor.execute("SELECT VERSION()")
 
 try:
-    sql = "SELECT * FROM `batik_data`"
+    sql = "SELECT * FROM ``"
     cursor.execute(sql)
     row = cursor.fetchone()   
 
@@ -40,7 +40,7 @@ try:
             if potong_content.count(fr) > 0:
                 if(tf.has_key(fr) == False):
                     tf[fr] = 0
-                tf[fr] = tf[fr] + 1
+                tf[fr] = tf[fr]
 
         row = cursor.fetchone()
 
@@ -49,7 +49,7 @@ try:
         if idfPerKata.has_key(tkp) == False:
             idfPerKata[tkp] = 0
         a = float(float(totalDokumen)/float(tf[tkp]))
-        idfPerKata[tkp] = float(log(a))
+        idfPerKata[tkp] = float(log10(a))
 
     cursor.execute(sql)
     row = cursor.fetchone()
@@ -69,11 +69,11 @@ try:
                     cursor2.execute(sql2)
                     dbConnection.commit()
             except Exception as e:
-                print(e)
+                print e 
                 dbConnection.rollback()
         #92 dokumen
         row = cursor.fetchone()
     
 except Exception as e:
-    print(e)
+    print e
     dbConnection.rollback()
