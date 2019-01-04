@@ -81,7 +81,7 @@ try:
         for i in content4:
             content = content +' '+i
 
-        content = content.replace('luh', ' ') # kata salah, ganti dengan spasi
+        content = content.replace('kata salah', ' ') # kata salah, ganti dengan spasi
         # print(content)
         
         #insert hasil preproses

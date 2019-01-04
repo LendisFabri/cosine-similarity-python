@@ -64,7 +64,7 @@ try:
         for kata in totalKataPerDokumen:
             try:
                 if kata != '' and kata != ' ':
-                    sql2 = "INSERT INTO `tf_idf`(`ID_CONTENT_WEB`, `TREM`, `TF`, `DF`, `IDF`, `WDT`) VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\")" % \
+                    sql2 = "INSERT INTO ``(``) VALUES (\"%s\")" % \
                        (int(row[0]), kata, totalKataPerDokumen[kata], tf[kata], idfPerKata[kata], (float(totalKataPerDokumen[kata])*float(idfPerKata[kata])))
                     cursor2.execute(sql2)
                     dbConnection.commit()
