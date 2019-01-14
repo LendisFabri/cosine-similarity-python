@@ -7,16 +7,16 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-metadata.create_all(engine)
+# metadata.create_all(engine)
 tokenize = lambda doc: doc.lower().split(" ")
 stemmer = StemmerFactory().create_stemmer()
 stopword = StopWordRemoverFactory().create_stop_word_remover()
 
 def normalize_text(text):
-	url = re.sub(r"http\S+", "", text)
+	# url = re.sub(r"http\S+", "", text)
 	stem = stemmer.stem(url)
 	stop = stopword.remove(stem)
-	punct = stop.translate(str.maketrans('','',string.punctuation))
+	punct = stop.translate(str.maketrans('','',string.punctuation+'0123456789'))
 	return punct
 
 query = ['batik bangkalan di madura cantik sekali']
