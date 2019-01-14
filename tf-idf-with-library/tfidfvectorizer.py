@@ -1,6 +1,6 @@
 import re, json, string, math
-from sqlalchemy import create_engine, Table, Column, Integer, Text, MetaData
-from sqlalchemy.sql import select 
+# from sqlalchemy import create_engine, Table, Column, Integer, Text, MetaData
+# from sqlalchemy.sql import select 
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -11,7 +11,6 @@ metadata.create_all(engine)
 tokenize = lambda doc: doc.lower().split(" ")
 stemmer = StemmerFactory().create_stemmer()
 stopword = StopWordRemoverFactory().create_stop_word_remover()
-
 
 def normalize_text(text):
 	url = re.sub(r"http\S+", "", text)
