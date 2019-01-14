@@ -20,7 +20,7 @@ def normalize_text(text):
 	return punct
 
 query = ['batik bangkalan di madura cantik sekali']
-tweets = [x[2] for x in result]
+tweets = [x[2] for x in result] #dataset dokumen
 corpus = query+tweets
 tfidf_vectorizer = TfidfVectorizer(norm='l2',min_df=0, use_idf=True, smooth_idf=True, sublinear_tf=True, preprocessor=normalize_text, tokenizer=tokenize)
 tfidf_matrix = tfidf_vectorizer.fit_transform(corpus)
